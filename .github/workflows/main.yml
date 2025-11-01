@@ -22,6 +22,18 @@ jobs:
           password: "L0jad0ec0mmerce*"
           server-dir: api_transcrever/
 
+      - name: 📂 SSH into the server
+        uses: appleboy/ssh-action@master
+        with:
+          host: cwp.salescode.dev
+          username: root
+          password: "Wsbws8g5@ts"
+          script: |
+            cd /home/app/api_transcrever
+            source venv/bin/activate
+            pip install -r requirements.txt --upgrade
+            sudo systemctl restart api-transcrever
+
 
       
       

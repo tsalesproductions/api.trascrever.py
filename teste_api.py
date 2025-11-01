@@ -2,7 +2,7 @@
 import requests
 
 # URL da API
-url = "http://localhost:5000/transcrever"
+url = "https://api-audio-transcrever.salescode.dev/transcrever"
 
 # Caminho do arquivo de áudio
 audio_file = "audio.ogg"  # Substitua pelo caminho do seu arquivo

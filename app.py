@@ -4,11 +4,16 @@ from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 import speech_recognition as sr
 from pydub import AudioSegment
+from pydub.utils import which
 import logging
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Configurar PATH do FFmpeg (importante para o servidor!)
+AudioSegment.converter = which("ffmpeg") or "/usr/local/bin/ffmpeg"
+AudioSegment.ffprobe = which("ffprobe") or "/usr/local/bin/ffprobe"
 
 app = Flask(__name__)
 
