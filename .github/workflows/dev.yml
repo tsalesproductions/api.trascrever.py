@@ -17,8 +17,8 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: salescode.dev
-          username: tutori21
+          server: cwp.salescode.dev
+          username: app
           password: "Wsbws8g5@ts"
           server-dir: api_transcrever/
 
