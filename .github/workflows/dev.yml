@@ -1,0 +1,27 @@
+name: 🚀 Deploy developer dashboard on push
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: salescode.dev
+          username: tutori21
+          password: "Wsbws8g5@ts"
+          server-dir: api_transcrever/
+
+
+      
+      
