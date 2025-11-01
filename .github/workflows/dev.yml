@@ -3,7 +3,7 @@ name: 🚀 Deploy developer dashboard on push
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   web-deploy:
