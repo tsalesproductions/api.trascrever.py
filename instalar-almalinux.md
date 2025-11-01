@@ -96,16 +96,27 @@ After=network.target
 
 [Service]
 Type=simple
-User=nobody
-Group=nobody
+User=app
+Group=app
 WorkingDirectory=/home/app/api_transcrever
-Environment="PATH=/home/app/api_transcrever/venv/bin"
+Environment="PATH=/home/app/api_transcrever/venv/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="FFMPEG_BINARY=/usr/local/bin/ffmpeg"
+Environment="FFPROBE_BINARY=/usr/local/bin/ffprobe"
 ExecStart=/home/app/api_transcrever/venv/bin/python app.py
 Restart=always
 RestartSec=10
+StandardOutput=append:/home/app/api_transcrever/logs/app.log
+StandardError=append:/home/app/api_transcrever/logs/error.log
 
 [Install]
 WantedBy=multi-user.target
+```
+
+**Ou copie do repositório:**
+
+```bash
+cd /home/app/api_transcrever
+sudo cp api-transcrever.service /etc/systemd/system/api-transcrever.service
 ```
 
 Ativar e iniciar o serviço:
